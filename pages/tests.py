@@ -27,7 +27,7 @@ class SignUpPageTests(TestCase):
 	email = 'newuser@email.com'
 
 	def test_signup_page_status_code(self):
-		response = self.client.get('/uses/signup/')
+		response = self.client.get('/users/signup/')
 		self.assertEqual(response.status_code, 200)
 
 	def test_view_url_by_name(self):
