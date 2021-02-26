@@ -5,5 +5,6 @@
 	<form action="" method="post">{% csrf_token %}
 		{{ form.as_p }}
 	<button class="btn btn-info ml-2" type="submit">Update</button>
+	<a class="btn btn-primary" href="{% url 'article_list' %}">Back</a>
 </form>
 {% endblock content %}
