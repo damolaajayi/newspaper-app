@@ -27,6 +27,10 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	template_name = 'article_edit.html'
 	login_url = 'login'
 
+	def test_func(self):
+		obj = self.get_object()
+		return obj.author == self.request.user
+
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 	model = Article
 	template_name = 'article_delete.html'
