@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'snv$ripdmdql+42lxy$xun7k$@^n#i=7p*qr(q%8fhok5g0-qi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,14 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
 
-    #3rd party
+    # 3rd party
     'crispy_forms',
 
 
 
-    #Local
+    # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig',
@@ -85,6 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'newspaper_project.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -132,11 +134,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -150,5 +151,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-#EMAIL_HOST_USER =
-#EMAIL_HOST_PASSWORD =
+# EMAIL_HOST_USER =
+# EMAIL_HOST_PASSWORD =
