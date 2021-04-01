@@ -19,6 +19,12 @@ class ArticleListView(LoginRequiredMixin, ListView):
         return Article.objects.filter(author=self.request.user)
 
 
+class ArticleListAllView(LoginRequiredMixin, ListView):
+    model = Article
+    template_name = 'article_list_all.html'
+    login_url = 'login'
+
+
 class ArticleDetailView(LoginRequiredMixin, DetailView):
     model = Article
     template_name = 'article_detail.html'
